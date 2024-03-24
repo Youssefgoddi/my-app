@@ -1,0 +1,149 @@
+<div class="container" id="elementToPrint">
+  <div class="row mt-5">
+    <!-- Image Column -->
+    <div class="col-md-6">
+      <!-- Add your image here -->
+      <div class="image-container">
+        <input
+          id="fileInput"
+          type="file"
+          #fileInput
+          hidden
+          (change)="onFileSelected($event)"
+        />
+        <label for="fileInput" class="custom-file-upload"></label>
+        <img
+          class="img-fluid"
+          #image
+          [src]="selectedPhoto"
+          (click)="openFileInput()"
+        />
+      </div>
+    </div>
+    <!-- Recipe Details Column -->
+    <div class="col mt-3">
+      <div class="row">
+        <div class="col">
+          <h2 contenteditable="true">Titre de la recette</h2>
+          <h5 contenteditable="true" class="mt-3" style="width: 80%">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </h5>
+          <!-- Star Rating -->
+          <div class="rate mb-3">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="5 stars">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="4 stars">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="3 stars">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="2 stars">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="1 star">1 star</label>
+          </div>
+        </div>
+        <hr />
+        <!-- Preparation, Cooking, and Portions -->
+        <div class="row mb-3">
+          <div class="col">
+            <div class="colpreparation">
+              <p>Préparation</p>
+              <div><span contenteditable="true">xx</span> <span>min</span></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="colcooking">
+              <p>Cuisson</p>
+              <div><span contenteditable="true">xx</span> <span>min</span></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="colportions">
+              <p>Portions</p>
+              <div contenteditable="true">xx</div>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <button class="btn-favorite">J'adore</button>
+          <button class="ms-3 btn-download" (click)="generatePDF()">
+            Télécharger Recette
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="mt-4" />
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Ingrédients</h3>
+      <small>Vous pouvez supprimer un ingrédient en cliquant dessus </small>
+      <ul class="list-group list-group-flush mb-3 mt-3">
+        <li
+          class="list-group-item item"
+          *ngFor="let ingredient of ingredients"
+          (click)="deleteIngredient(ingredient)"
+        >
+          {{ ingredient }}
+        </li>
+      </ul>
+
+      <div class="d-flex mb-3">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="newItem"
+          placeholder="Entez un ingrédient"
+        />
+        <button class="w-50 ms-2 btn btn-primary" (click)="addItem()">
+          Add Item
+        </button>
+      </div>
+    </div>
+    <div class="col-md-6 offset-md-1">
+      <h3>Comment c'est fait:</h3>
+      <p contenteditable="true" style="width: 90%" class="mb-4">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Tincidunt nunc
+        pulvinar sapien et ligula. Eget nunc scelerisque viverra mauris in
+        aliquam sem fringilla. Ac placerat vestibulum lectus mauris ultrices
+        eros in cursus. Pulvinar elementum integer enim neque volutpat ac. Eget
+        aliquet nibh praesent tristique magna. Viverra maecenas accumsan lacus
+        vel facilisis. Quisque egestas diam in arcu. Lacinia quis vel eros donec
+        ac odio tempor orci dapibus. Et leo duis ut diam quam nulla porttitor
+        massa. Gravida in fermentum et sollicitudin ac orci phasellus egestas
+        tellus. Tempor nec feugiat nisl pretium fusce id. Mi bibendum neque
+        egestas congue quisque egestas diam. Nec ullamcorper sit amet risus
+        nullam eget felis eget.
+      </p>
+      <table class="tableau">
+        <tr>
+          <th>kcal</th>
+          <th>lip</th>
+          <th>glu</th>
+          <th>pro</th>
+        </tr>
+        <tr>
+          <td><span contenteditable="true">xx</span></td>
+          <td><span contenteditable="true">xx</span> <span>g</span></td>
+          <td><span contenteditable="true">xx</span> <span>g</span></td>
+          <td><span contenteditable="true">xx</span> <span>g</span></td>
+        </tr>
+      </table>
+      <hr />
+      <h3>Informations supplémentaires</h3>
+      <p contenteditable="true">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </div>
+  </div>
+
+  <button (click)="getContent()" class="btn btn-success mx-auto d-block my-5">
+    Upload
+  </button>
+</div>

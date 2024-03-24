@@ -1,0 +1,54 @@
+
+  <div class="container">
+  <header>
+    <a routerLink=" " class="logo">LOGO</a>
+    <ul class="navbar">
+      <li><a routerLink="" class="active">Home</a></li>
+      <li><a href="#" >About</a></li>
+      <li><a href="#" >Shop</a></li>
+      <li><a href="#" >Pages</a></li>
+      <li><a href="#" >Blog</a></li>
+      <li><a href="#" >Contact</a></li>
+      
+    </ul>
+
+    <div class="icons">
+      <a routerLink="/user"><i class="ri-user-line user"></i></a>
+      <a href="#"><i class="ri-heart-line heart"></i></a>
+      <button><i class="ri-search-line search" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"></i></button>
+
+      <div class=" offcanvas offcanvas-top d-flex align-items-center justify-content-center" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+            <h5 class="offcanvas-title mt-5 text-center text-lg-start" id="offcanvasTopLabel">What Can I Get Started For You Today ?</h5>
+            <div class="offcanvas-body ">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                      <input  class="form-control ">
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+
+
+      <a href="#offcanvasRight" data-bs-toggle="offcanvas" aria-controls="offcanvasRight"><i *ngIf="width <= 1200" class="ri-menu-line hamburger"></i></a>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-body">
+          <ul class="navbar_menu">
+            <li><a routerLink=" " class="active">Home</a></li>
+            <li><a href="#" >About</a></li>
+            <li><a href="#" >Shop</a></li>
+            <li><a routerLink="/user" >My Account</a></li>
+            <li><a href="#" >My Saves</a></li>
+            <li><a href="#" >Pages</a></li>
+            <li><a href="#" >Blog</a></li>
+            <li><a href="#" >Contact</a></li>
+            
+          </ul>
+        </div>
+      </div>
+  </div>
+
+
+</header>
+</div>

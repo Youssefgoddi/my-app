@@ -1,0 +1,71 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em 0.5em 0.5em;
+  text-align: center;
+  border-radius: 1em;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1);
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+td,
+th {
+  padding: 20px;
+}
+.holder {
+  border-radius: 25px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  padding: 5%;
+}
+.contact {
+  border-top: 1px solid rgba(0, 0, 0, 0.137);
+  border-radius: 25px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.published_reciepe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image {
+  width: 20%;
+}
+.form-control,
+.form-select {
+  border: 1px solid rgba(0, 0, 0, 0.433);
+}
+.form-control:focus,
+.form-select:focus {
+  box-shadow: none;
+}
+
+#photo{
+  cursor: pointer;
+}
+.modal-header{
+  display: block;
+  text-align: center;
+
+}
+.avatar{
+  width: 30%;
+}
+.modal-title{
+  font-size: 1.8rem;
+}
+.flex-wrap .card-img-top{
+  cursor: pointer;
+  align-self: center;
+  width: 80%;
+}
+
+.card-img-top:hover{
+position: relative;
+bottom: 10px;
+}
