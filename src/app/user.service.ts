@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 import { Observable, catchError, throwError } from 'rxjs';
 @Injectable({
@@ -9,23 +9,29 @@ export class UserService {
 
   constructor(private http : HttpClient) { }
 
-  getUser() {
-    return this.http.get<User>('http://localhost/projet_web/produit.php?id=11');
-  }
-  
+  deleteUser(){
+    return this.http.delete<User>('http://localhost/projet_web/produit.php');
 
-  enroll(user : User ){
-    return this.http.post('http://localhost/projet_web/insert.php',user)
   }
-  
-  updateUser(user :User): Observable<any> {
+  getUser() {
+    return this.http.get<User>('http://localhost/projet_web/produit.php?id=18');
+  }
+  updateUser(user :any): Observable<any> {
     const url = 'http://localhost/projet_web/update.php';
 
-    return this.http.put<any>(url, user);
+    return this.http.put(url, user);
 }
 
-uploadRecipe(content: any): Observable<any> {
-  return this.http.post<any>('http://localhost/projet_web/insert_recipes.php', { content });
+setUser(id: string): void {
+  localStorage.setItem('userID', id);
+}
+  getRecipe() {
+    return this.http.get('http://localhost/projet_web/get_recipes.php');
+  }
+  
+
+uploadRecipe(content: any) {
+  return this.http.post<any>('http://localhost/projet_web/insert_recipes.php', JSON.stringify( content) );
 }
   
 }

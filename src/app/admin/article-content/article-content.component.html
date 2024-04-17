@@ -1,0 +1,19 @@
+<div class="container mb-5" *ngIf="article">
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <h2>{{ article.title }}</h2>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          <img [src]="article.image" alt="Article Image" class="img-fluid mb-3">
+        </div>
+        <div>
+          <div [innerHTML]="content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

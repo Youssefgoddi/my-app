@@ -15,21 +15,24 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './profil.component.css'
 })
  
-export class ProfilComponent implements OnInit{
+export class ProfilComponent implements OnInit {
   
-  isEditMode: boolean = false;
-  
-  fullName :string ="";
-  about_me : string ="";
   constructor(private http: HttpClient, private _update: UserService) { }
-
-  ngOnInit(): void {
-    this._update.getUser().subscribe(
-      {
-      }
-    )
-  }
-  
+  fullName! :string
+  about_me !:string
+  selectedCountry! :string
+  image:string ='https://www.svgrepo.com/show/29870/avatar.svg'
+   ngOnInit()  {
+     this._update.getUser().subscribe(data => {
+       this.fullName = data.fullName;
+       this.about_me=data.about_me
+       this.selectedCountry= data.country
+      console.log(data);
+      
+      
+      })}
+       
+       isEditMode: boolean = false;
   toggleEditMode() {
     this.isEditMode = !this.isEditMode; // Toggle the value of isEditMode
   }
@@ -49,7 +52,7 @@ export class ProfilComponent implements OnInit{
       },
     }).then((result: any) => {
       if (result.isConfirmed) {
-        // Perform delete operation
+        this.deleteAccount
         Swal.fire('Deleted!', 'Your account has been deleted.', 'success');
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         // Do nothing or provide feedback
@@ -57,9 +60,9 @@ export class ProfilComponent implements OnInit{
       }
     });
   }
-  
+
   saved() {
-    let user1 = new User(this.fullName,this.about_me)
+    let user1 = new User(this.fullName,this.about_me,this.selectedCountry,this.image)
     this._update.updateUser(user1)
     .subscribe({
       next: data => {
@@ -82,27 +85,26 @@ export class ProfilComponent implements OnInit{
 }); 
       }
 
-  changeAvatar(id: number) {
-    let photo = document.querySelector('#photo') as HTMLImageElement;
-    switch (id) {
-      case 1:
-        photo.src = '../../assets/femme1.svg';
-        break;
-      case 2:
-        photo.src = '../../assets/femme2.svg';
-        break;
-      case 3:
-        photo.src = '../../assets/femme3.svg';
-        break;
-      case 4:
-        photo.src = '../../assets/homme1.svg';
-        break;
-      case 5:
-        photo.src = '../../assets/homme2.svg';
-        break;
-      case 6:
-        photo.src = '../../assets/homme3.svg';
-        break;
-    }
-  }
+      changeAvatar(event: Event) {
+        let photo = document.querySelector('#photo') as HTMLImageElement;
+        let source = (event.target as HTMLImageElement).src;
+        photo.src = source;
+        this._update.updateUser(source)
+        .subscribe({
+          next: data => {
+            console.log('Success!', data);
+            // Optionally, perform any other actions upon success
+          },
+          error: err => {
+            console.error('Error:', err);
+            // Optionally, handle the error (e.g., display an error message to the user)
+          }
+        });
+      }
+      deleteAccount(){
+        this._update.deleteUser().subscribe(
+          data => console.log(data)
+          
+        )
+      }
 }

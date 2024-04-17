@@ -1,63 +1,93 @@
-section .main{
+img {
+  margin-top: 5%;
+}
+.text {
+  margin-top: 18%;
+  color: rgb(70, 5, 36);
+}
+.container {
+  padding: 2% 5%;
+  border-radius: 25px;
+  background-color: #dc7f9867;
+}
+
+.button {
+  padding: 1% 5%;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  background-color: rgba(193, 42, 128, 0.542);
+}
+.category {
   display: flex;
+  
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+}
+
+.salty{
+  display: flex;
+  padding-left: 2%;
   align-items: center;
-  justify-content: space-around;
-  position: relative;
-  top: 130px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px; /* Adjust the width of the buttons */
+    height: 50px; /* Adjust the height of the buttons */
+    font-size: 24px; /* Font size */
+    position: absolute; /* Positioning */
+    top: 50%; /* Positioning */
+    transform: translateY(-50%); /* Center vertically */
+    z-index: 1; /* Ensure it's above the carousel */
 }
 
-section .main .men_text h1{
-  font-size: 60px;
-  position: relative;
-  top: -90px;
-  left: 20px;
+.carousel-control-prev {
+    left: -5%; /* Adjust left position */
 }
 
-section .main .men_text h1 span{
-  margin-left: 15px;
-  color: #fac031;
-  font-family: mv boli;
-  line-height: 22px;
-  font-size: 70px;
+.carousel-control-next {
+    right: -5%; /* Adjust right position */
 }
 
-section .main .main_image img{
-  width: 700px;
-  position: relative;
-  left: 70px;
+
+.carousel-item .card-img-top {
+  margin-top: 0;
+  border-radius: 20px;
+  height: 200px;
+  padding: 2% 3%;
+  object-fit: cover; /* Ensure the image covers the entire container */
+  width: 100%; /* Set image width to 100% */
 }
 
-section p{
-  width: 650px;
-  text-align: justify;
-  position: relative;
-  left: 123px;
-  bottom: 120px;
-  line-height: 22px;
+.carousel-item .card {
+  margin: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.144);
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  padding: 0.5%;
+}
+.col-md-3 h3{
+margin-top: 40%;
+
+}
+.col-md-3 .btn{
+border: 1px solid rgba(0, 128, 0, 0.342);
+color: rgb(0, 152, 20);
+background-color: rgba(128, 228, 176, 0.238);
+}
+.textbutton .btn{
+  border: 1px solid rgba(128, 0, 75, 0.342);
+color: rgb(139, 0, 152);
+background-color: rgba(231, 109, 204, 0.238);
 }
 
-section .main_btn{
-  background: #fac031;
-  position: relative;
-  left: 123px;
-  bottom: 30px;
-  width: 150px;
-  cursor: pointer;
-  padding: 12px 25px;
+.subscribe{
+  background-image: url(https://img.freepik.com/photos-gratuite/nid-abeille-pot-fleurs_144627-29590.jpg?t=st=1711479639~exp=1711483239~hmac=0c8fa1240bbab7caff5f1825cb26b198c6341ed250f83558b49329738a6fe23a&w=996);
+  background-size: cover; /* Ensure the background covers the entire element */
+  background-position: center right  ; /* Display only the top part of the background */
 }
-
-section .main_btn a{
-  color: #fff;
-  margin-right: 5px;
+footer a{
   text-decoration: none;
-}
-
-section .main_btn i{
-  color: #fff;
-  transition: 0.3s;
-}
-
-section .main_btn:hover i{
-  transform: translateX(7px);
 }
 

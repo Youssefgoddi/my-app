@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+            <div class="form-group mb-2">
+                <label for="title" class="me-3">Article's title:</label>
+                <input type="text" class="form-control w-50" id="title" placeholder="Enter Title Here" name="title" [(ngModel)]="articleData.title">
+            </div>
+            <div class="form-group mb-2">
+                <label for="desc" class="me-3 ">Article's description:</label>
+                <input type="text" class="form-control " id="desc" placeholder="Enter description Here" name="description" [(ngModel)]="articleData.desc">
+            </div>
+            <div class="form-group mb-2">
+                <label for="url" class="me-3 ">Image Url:</label>
+                <input type="text" class="form-control " id="url" placeholder="Enter Url Here" name="description" [(ngModel)]="articleData.url">
+            </div>
+        </div>
+        <angular-editor [(ngModel)]="articleData.content" [config]="editorConfig"></angular-editor>
+        <input type="submit" (click)="submit()" class="btn mt-3 btn-outline-primary w-25" value="Submit">
+</div>

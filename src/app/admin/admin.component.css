@@ -1,0 +1,17 @@
+img{
+    width: 50%;
+    align-self: center;
+}
+.wrapper{
+display: flex;
+justify-content: center;    
+}
+.card{
+    display: inline-block;
+    border-radius: 20px;
+    border: none;
+}
+
+a{
+    text-decoration: none;
+}

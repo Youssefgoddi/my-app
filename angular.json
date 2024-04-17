@@ -55,6 +55,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": { "proxyConfig": "./proxyConfig/dev.proxy.conf.json"},
           "configurations": {
             "production": {
               "buildTarget": "my-app:build:production"
@@ -81,12 +82,15 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "**/*", "input": "node_modules/tinymce", "output": "/tinymce/"}
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/tinymce/tinymce.min.js"
+            ]
           }
         }
       }

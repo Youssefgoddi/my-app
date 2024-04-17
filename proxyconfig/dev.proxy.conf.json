@@ -1,0 +1,8 @@
+{
+    "/projet_web": {
+      "target": "http://localhost:3308",
+      "secure": false
+
+    }
+  }
+  
